@@ -19,3 +19,15 @@ if User.count <= 3
   User.create!(email: 'test7@gmail.com', password: 'password', username: 'test7')
   User.create!(email: 'test8@gmail.com', password: 'password', username: 'test8')
 end
+
+# Create a message
+if Message.count <= 10
+    Message.create!(body: 'Hello', user_id: 1)
+    Message.create!(body: 'Hi', user_id: 2)
+    Message.create!(body: 'Hey', user_id: 3)
+    Message.create!(body: 'Hola', user_id: 4)
+    Message.create!(body: 'Bonjour', user_id: 5)
+    Message.create!(body: 'Ciao', user_id: 6)
+    Message.create!(body: 'Hallo', user_id: 7)
+    Message.create!(body: 'Salut', user_id: 8)
+end

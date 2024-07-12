@@ -9,22 +9,26 @@ class ChatroomController < ApplicationController
     def new 
     end 
 
-    def create 
-        @message = Message.new(message_params)
-        @message.user_id = current_user.id
-        respond_to do |format|
-            if @message.save
-                format.html { redirect_to root_path, notice: 'Message was successfully created.' }
-                format.js
-
-            else 
-                format.html { render :new }
-                format.json { render json: @message.errors, status: :unprocessable_entity }
-            end
-        end 
-
-
-    end 
+    #def create 
+    #    @message = Message.new(message_params)
+    #    @message.user_id = current_user.id
+    #    if @message.save
+#
+    #        ActionCable.server.broadcast "ChatroomChannel", foo: @message.body
+    #    end 
+    #end 
+#
+    def create
+        @message = current_user.messages.build(message_params)  # This uses association build method
+      
+        if @message.save
+          ActionCable.server.broadcast('ChatroomChannel',{ mod_message: message_render(@message)})
+          #render json: { status: 'success', message: 'Message sent!' }, status: :ok
+        else
+          render json: @message.errors, status: :unprocessable_entity
+        end
+      end
+      
 
     def delete
         @message = Message.find(params[:id])
@@ -35,6 +39,10 @@ class ChatroomController < ApplicationController
 
 
     private
+
+    def message_render(message)
+        render(partial: 'messages/message', locals: { message: message})
+    end
     def message_params
         params.require(:message).permit(:body)
     end

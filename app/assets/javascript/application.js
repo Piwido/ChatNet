@@ -15,10 +15,10 @@
 //= require activestorage
 //= require turbolinks
 //= require semantic-ui
-//= require_tree .
+//= require action_cable
+//= require channels/index
 
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
 })
 
-console.log('Hello from application.js')
