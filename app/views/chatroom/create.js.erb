@@ -1,0 +1,7 @@
+<% if flash[:error] %>
+<% true %>
+<% else %>
+document.getElementById('new-messages').innerHTML += "<%= j render @message %>";
+  document.getElementById('new_message_form').reset();
+
+<% end %>

@@ -1,0 +1,21 @@
+<a class="item">
+  Chatroom
+</a>
+<a class="item">
+  Messages
+</a>
+<div class="right menu">
+<% if user_signed_in? %>
+  <a class="item">
+  Logout
+</a>
+<% else %>
+  <%=  link_to 'Sign in', new_user_session_path, class:'item' %>
+
+  </div>
+  <div class="item">
+      <div class="ui button"><%=  link_to 'Sign up', new_user_registration_path %>
+</div>
+  </div>
+<% end %>
+</div>

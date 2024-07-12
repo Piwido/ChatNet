@@ -1,0 +1,14 @@
+<div class="event">
+  <div class="content">
+    <div class="summary flex-container">
+      <span class="message-content">
+        <a><%= message.user.username %></a> : <%= message.body %>
+      </span>
+      <% if user_signed_in? && current_user == message.user %>
+        <%= link_to chatroom_index_path(message), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui icon button extra-mini delete-button' do %>
+          <i class="trash alternate outline icon"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

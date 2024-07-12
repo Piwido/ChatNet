@@ -1,0 +1,54 @@
+@import "semantic-ui";
+
+.chatbox {
+    height: 450px;
+}
+
+
+.messages-overflow {
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Aligns children (message and button) on opposite ends */
+    align-items: center; /* Keeps items vertically centered */
+    width: 100%; /* Ensures the container takes full width of its parent */
+  }
+  
+  .message-content {
+    flex-grow: 1; /* Allows the message content to take up any extra space */
+  }
+  
+  .delete-button {
+    flex-shrink: 0; /* Prevents the button from shrinking */
+  }
+  .ui.action.input {
+    width: 90%; /* Utilisez toute la largeur disponible dans le conteneur. */
+  }
+  
+  .ui.action.input .ui.button {
+    margin-left: -1px; /* Supprime l'espace entre l'input et le bouton */
+  }
+  
+  .ui.action.input input {
+    flex-grow: 1; /* Permet au champ de saisie de prendre l'espace disponible */
+  }
+
+  .extra.content {
+    padding: 10px; /* Réduisez la valeur si nécessaire */
+  }
+
+  
+  .extra.content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Assure que les enfants (form) utilisent toute la largeur disponible */
+  }
+  
+  .ui.form {
+    width: 100%; /* Assure que le formulaire utilise toute la largeur disponible */
+  }
+  
+  

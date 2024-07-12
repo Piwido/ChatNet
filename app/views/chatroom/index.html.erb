@@ -1,0 +1,52 @@
+<h4 class="ui center aligned medium icon header">
+  <i class="blue chat icon"></i>
+  ChatNet
+</h4>
+
+<div class="ui two column grid">
+  <div class="twelve wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="messages-overflow" id="new-messages">
+        <div class="content">
+          <div class="ui feed">
+            <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="extra content">
+        <% if !user_signed_in? %>
+          Connectez vous pour envoyer un message.
+          <% else %>
+          <%= form_with(model: @new_message, local: false, url: chatroom_index_path, class: 'ui form', id: 'new_message_form') do |f| %>
+          <div class="ui action input">
+            <%= f.text_field :body, placeholder: "Type your message here...", class: 'ui input' %>
+            <%= f.submit 'Send', class: 'ui button' %>
+          </div>
+        <% end %>
+        
+                <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical menu">
+          <a class="active item">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item">
+            Friends
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
