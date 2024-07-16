@@ -1,7 +1,7 @@
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "ChatroomChannel"
-    ActionCable.server.broadcast("ChatroomChannel", { message: "User #{current_user.username} has joined the chat" })
+    ActionCable.server.broadcast("ChatroomChannel",)
 
   end
 
@@ -15,5 +15,7 @@ class ChatroomChannel < ApplicationCable::Channel
       ActionCable.server.broadcast "ChatroomChannel", message: render_message(message)
     end
   end
+
+
 
 end

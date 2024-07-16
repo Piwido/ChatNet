@@ -1,8 +1,8 @@
 #require 'enumerize'
 
 class User < ApplicationRecord
-  #extend enumerize
-  #enumerize :role, in: [:user, :admin], default: :user
+  extend Enumerize
+  enumerize :role, in: [:user, :admin], default: :user
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

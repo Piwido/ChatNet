@@ -1,16 +1,15 @@
-<a class="item">
+<a href='/' class="item">
   Chatroom
 </a>
 <a class="item">
-  Messages
+  Stock
 </a>
 <div class="right menu">
 <% if user_signed_in? %>
-  <a class="item">
-  Logout
-</a>
+  <%=  link_to 'Logout', destroy_user_session_path, method: :delete, class:'item' %>
+
 <% else %>
-  <%=  link_to 'Sign in', new_user_session_path, class:'item' %>
+  <%=  link_to 'Sign in', new_user_session_path,  class:'item' %>
 
   </div>
   <div class="item">

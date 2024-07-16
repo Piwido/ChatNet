@@ -30,11 +30,13 @@ class ChatroomController < ApplicationController
       end
       
 
-    def delete
+    def destroy
         @message = Message.find(params[:id])
         @message.destroy
         redirect_to root_path
     end
+
+
 
 
 

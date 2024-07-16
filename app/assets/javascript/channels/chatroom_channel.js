@@ -5,6 +5,7 @@ consumer.subscriptions.create("ChatroomChannel", {
         // Called when the subscription is ready for use on the server
         console.log("2 - Hello from the chatroom_channel.js file");
         console.log("2 - Subscribed to the chatroom :", this);
+        $('#new-messages').append("A new user has entered the chatroom!")
 
 
     },
